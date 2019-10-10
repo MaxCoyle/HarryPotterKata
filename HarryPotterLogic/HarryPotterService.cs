@@ -5,21 +5,18 @@ namespace HarryPotterLogic
     public class HarryPotterService
     {
         public const decimal SingleBookPrice = 8;
-
-        public List<string> Basket { get; }
+        
         public List<string> UniqueBooks { get; }
         public List<string> DuplicateBooks { get; }
 
         public HarryPotterService()
-        {
-            Basket = new List<string>();
+        {            
             UniqueBooks = new List<string>();
             DuplicateBooks = new List<string>();
         }
 
         public void AddBookToBasket(string bookName)
         {
-            Basket.Add(bookName);
             if (UniqueBooks.Contains(bookName))
             {
                 DuplicateBooks.Add(bookName);
