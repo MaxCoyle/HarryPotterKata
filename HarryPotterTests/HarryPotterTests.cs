@@ -31,7 +31,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal) 15.20);
+            response.Should().Be((decimal)15.2);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal)21.60);
+            response.Should().Be((decimal)21.6);
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal)27.20);
+            response.Should().Be((decimal)27.2);
         }
 
         [Fact]
@@ -82,7 +82,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal)32.00);
+            response.Should().Be(32);
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal) 39.2);
+            response.Should().Be((decimal)39.2);
         }
 
         [Fact]
@@ -154,7 +154,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal) 39.2);
+            response.Should().Be((decimal)39.2);
         }
 
         [Fact]
@@ -177,7 +177,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal) 75.2);
+            response.Should().Be((decimal)75.2);
         }
 
         [Fact]
@@ -204,7 +204,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal) 95.2);
+            response.Should().Be((decimal)95.2);
         }
     }
 }
