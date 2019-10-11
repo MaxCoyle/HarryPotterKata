@@ -4,57 +4,53 @@ namespace HarryPotterLogic
 {
     public class HarryPotterService
     {
-        public const decimal SingleBookPrice = 8;
-        
-        public List<string> UniqueBooks { get; }
-        public List<string> DuplicateBooks { get; }
+        public List<BookSet> BookSets { get; }
 
         public HarryPotterService()
-        {            
-            UniqueBooks = new List<string>();
-            DuplicateBooks = new List<string>();
+        {
+            BookSets = new List<BookSet>();
         }
 
         public void AddBookToBasket(string bookName)
         {
-            if (UniqueBooks.Contains(bookName))
+            if (AddBookToExistingBookset(bookName)) return;
+            AddBookToNewBookSet(bookName);
+        }
+
+        private bool AddBookToExistingBookset(string bookName)
+        {
+            var bookAddedToExistingBookset = false;
+
+            foreach (var bookSet in BookSets)
             {
-                DuplicateBooks.Add(bookName);
+                if (bookSet.Books.Contains(bookName)) continue;
+                bookSet.Books.Add(bookName);
+                bookAddedToExistingBookset = true;
+                break;
             }
-            else
-            {
-                UniqueBooks.Add(bookName);
-            }
+
+            return bookAddedToExistingBookset;
+        }
+
+        private void AddBookToNewBookSet(string bookName)
+        {
+            var newBookSet = new BookSet();
+            newBookSet.Books.Add(bookName);
+            BookSets.Add(newBookSet);
         }
 
         public decimal BasketTotal => GetBasketTotal();
 
         private decimal GetBasketTotal()
         {
-            return GetUniqueBooksTotal() + (DuplicateBooks.Count * SingleBookPrice);
-        }
+            decimal basketTotal = 0;
 
-        private decimal GetUniqueBooksTotal()
-        {
-            switch (UniqueBooks.Count)
+            foreach (var bookSet in BookSets)
             {
-                case 1:
-                    return SingleBookPrice;
-                case 2:
-                    return (decimal) SingleBookPrice * UniqueBooks.Count * 95 / 100;
-                case 3:
-                    return (decimal) SingleBookPrice * UniqueBooks.Count * 90 / 100;
-                case 4:
-                    return (decimal) SingleBookPrice * UniqueBooks.Count * 85 / 100;
-                case 5:
-                    return (decimal) SingleBookPrice * UniqueBooks.Count * 80 / 100;
-                case 6:
-                    return (decimal) SingleBookPrice * UniqueBooks.Count * 75 / 100;
-                case 7:
-                    return (decimal) SingleBookPrice * UniqueBooks.Count * 70 / 100;
-                default:
-                    return 0;
+                basketTotal = basketTotal + bookSet.Total;
             }
+
+            return basketTotal;
         }
     }
 }

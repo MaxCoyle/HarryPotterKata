@@ -154,7 +154,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal)39.2);
+            response.Should().Be((decimal)38.4);
         }
 
         [Fact]
@@ -177,7 +177,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal)75.2);
+            response.Should().Be((decimal)72);
         }
 
         [Fact]
@@ -204,7 +204,7 @@ namespace HarryPotterTests
             var response = harryPotterService.BasketTotal;
 
             // Assert
-            response.Should().Be((decimal)95.2);
+            response.Should().Be((decimal)89.6);
         }
     }
 }

@@ -2,6 +2,8 @@
 {
     public class HarryPotterBooks
     {
+        public const decimal SingleBookPrice = 8;
+
         public const string ThePhilosophersStone = "The Philosopher's Stone";
         public const string TheChamberOfSecrets = "The Chamber of Secrets";
         public const string ThePrisonerOfAzkaban = "The Prisoner of Azkaban";
